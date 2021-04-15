@@ -25,7 +25,7 @@ func test3(a, b int) int {
 }
 
 func main() {
-	test()
+	test() //测试ubuntu提交
 	fmt.Println(test2(1, 3))
 	fmt.Println(test3(5, 6))
 }
