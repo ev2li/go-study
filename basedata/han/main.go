@@ -11,7 +11,7 @@ func main()  {
 	hzc := 0
 	for _, v := range s {
 		if unicode.Is(unicode.Han, v) {
-			hzc++;
+			hzc++
 		}
 	}
 	fmt.Println(hzc)
