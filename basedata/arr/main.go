@@ -1,25 +1,26 @@
 package main
 
+//
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
-func main(){
+func main() {
 	test()
 }
-func  initConfig() (err error){
+func initConfig() (err error) {
 	return errors.New("init config failed")
 }
 
-func test(){
+func test() {
 	var a []int
 	a = append(a, 10, 20, 234)
 	fmt.Println(a)
 	a = append(a, a...)
 	fmt.Println(a)
 
-	defer func(){
+	defer func() {
 		if err := recover(); err != nil {
 			fmt.Println(err)
 		}
