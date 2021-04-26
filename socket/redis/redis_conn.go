@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/garyburd/redigo/redis"
 	"fmt"
-	"debug/elf"
 )
 
 func main() {
