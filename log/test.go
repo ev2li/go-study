@@ -16,7 +16,7 @@ func main() {
 	msg.Topic = "nginx_log"
 	msg.Value = sarama.StringEncoder("this is a good test, my message is good")
 
-	client, err := sarama.NewSyncProducer([]string{"10.240.221.17:9092"}, config)
+	client, err := sarama.NewSyncProducer([]string{"10.240.167.183:9092"}, config)
 	if err != nil {
 		fmt.Println("producer close, err:", err)
 		return

@@ -7,4 +7,8 @@ docker run -d --name zookeeper -p 2181:2181 -v /etc/localtime:/etc/localtime wur
 ubuntu:
 docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=192.168.1.66:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.1.66:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
 mac:
-docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=10.240.221.17:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://10.240.221.17:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
+docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=10.240.167.183:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://10.240.167.183:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
+
+kafka topic常用操作:
+kafka-topics.sh --zookeeper 10.240.167.183:2181 --list
+kafka-topics.sh --create --zookeeper 10.240.167.183:2181 --topic nginx_log --replication-factor 1 --partitions 1
