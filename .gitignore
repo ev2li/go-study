@@ -8,6 +8,7 @@
 *.dylib
 go.mod
 go.sum
+logs/*
 # Test binary, built with `go test -c`
 *.test
 
