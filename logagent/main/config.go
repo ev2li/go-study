@@ -16,6 +16,9 @@ type Config struct {
 	ChanSize int
 	KafkaAddr string
 	CollectConf []tailf.CollectConf
+
+	etcdAddr string
+	etcdKey string
 }
 
 func loadCollectConf(conf config.Configer)(err error){
@@ -60,6 +63,18 @@ func loadConf(confType, filename string)(err error){
 	appConfig.ChanSize , err = conf.Int("logs::chan_size")
 	if err != nil {
 		appConfig.ChanSize = 100
+	}
+
+	appConfig.etcdAddr = conf.String("etcd::addr")
+	if len(appConfig.etcdAddr) == 0  {
+		err = fmt.Errorf("Invalid etcd addr")
+		return
+	}
+
+	appConfig.etcdKey = conf.String("etcd::configKey")
+	if len(appConfig.etcdKey) == 0  {
+		err = fmt.Errorf("Invalid etcd configKey")
+		return
 	}
 	err = loadCollectConf(conf)
 	if err != nil {

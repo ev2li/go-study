@@ -6,7 +6,7 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
-func main() {
+func main2() {
 	config := make(map[string]interface{})
 	config["filename"] = "./logs/logcollect.log"
 	config["level"] = logs.LevelDebug

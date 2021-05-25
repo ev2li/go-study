@@ -5,7 +5,7 @@ import (
 	"github.com/astaxie/beego/config"
 )
 
-func main() {
+func main1() {
 	conf, err := config.NewConfig("ini", "./logagent.conf")
 	if err != nil {
 		fmt.Println("new config failed, err:", err)

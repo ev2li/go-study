@@ -46,6 +46,13 @@ func main() {
 			time.Sleep(time.Second)
 		}
 	}()*/
+
+	err = initEtcd(appConfig.etcdAddr, appConfig.etcdKey)
+	if err != nil {
+		logs.Error("initEtcd faild, err : %v", err)
+		return
+	}
+
 	err = serverRun()
 	if err != nil {
 		logs.Error("serverRun faild, err : %v", err)

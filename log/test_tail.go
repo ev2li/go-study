@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func main() {
+func main3() {
 	filename := "./my.log"
 	tails, err := tail.TailFile(filename, tail.Config{
 		ReOpen: true,
