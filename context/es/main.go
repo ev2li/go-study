@@ -10,7 +10,7 @@ type Tweet struct {
 }
 
 func main() {
-	client, err := elastic.NewClient(elastic.SetSniff(false), elastic.SetURL("http://192.168.1.66:9200/"))
+	client, err := elastic.NewClient(elastic.SetSniff(false), elastic.SetURL("http://127.0.0.1:9200/"))
 	if err != nil {
 		fmt.Println("Connect es err:", err)
 		return
