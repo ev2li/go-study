@@ -25,7 +25,14 @@ func main() {
 	logs.Debug("initialize success")
 	logs.Debug("load conf success, config:%v", appConfig)
 
-	err = tailf.InitTail(appConfig.CollectConf, appConfig.ChanSize)
+	var collectConf []tailf.CollectConf
+	collectConf, err = initEtcd(appConfig.etcdAddr, appConfig.etcdKey)
+	if err != nil {
+		logs.Error("initEtcd faild, err : %v", err)
+		return
+	}
+
+	err = tailf.InitTail(collectConf, appConfig.ChanSize)
 	if err != nil {
 		logs.Error("init tail faild, err : %v", err)
 		return
@@ -46,12 +53,6 @@ func main() {
 			time.Sleep(time.Second)
 		}
 	}()*/
-
-	err = initEtcd(appConfig.etcdAddr, appConfig.etcdKey)
-	if err != nil {
-		logs.Error("initEtcd faild, err : %v", err)
-		return
-	}
 
 	err = serverRun()
 	if err != nil {
