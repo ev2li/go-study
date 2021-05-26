@@ -9,7 +9,7 @@ type IndexController struct {
 }
 
 func (p *IndexController)Index() {
-	p.TplName = "IndexController/index.html"
+	p.TplName = "IndexController/layout.html"
 /*	res := make(map[string]interface{})
 	res["code"] = 200
 	res["message"] = "success"
