@@ -1,6 +1,8 @@
 package main
 
-import "github.com/astaxie/beego/logs"
+import (
+	"github.com/astaxie/beego/logs"
+)
 
 func main() {
 	filename := "../../conf/logtransfer.conf"

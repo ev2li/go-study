@@ -41,6 +41,7 @@ func initEtcd(addr string, key string)(collectConf []tailf.CollectConf, err erro
 
 	for _,ip := range localIpArray{
 		etcdKey := fmt.Sprintf("%s%s", key, ip)
+		fmt.Println(etcdKey)
 		etcdClient.keys = append(etcdClient.keys, etcdKey)
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 		resp, err := cli.Get(ctx, etcdKey)

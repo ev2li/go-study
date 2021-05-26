@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	EtcdKey = "/oldboy/backend/logagent/config/127.0.0.1"
+	EtcdKey = "/oldboy/backend/logagent/config/10.240.222.14"
 )
 
 func setLogConfToEtcd(){

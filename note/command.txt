@@ -12,6 +12,9 @@ docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER
 kafka topic常用操作:
 kafka-topics.sh --zookeeper 10.240.167.183:2181 --list
 kafka-topics.sh --create --zookeeper 10.240.167.183:2181 --topic nginx_log --replication-factor 1 --partitions 1
+kafka-topics.sh --zookeeper 10.240.222.14:2181 --alter --topic nginx_log --partitions 2
+kafka-topics.sh --zookeeper 10.240.222.14:2181 --describe --topic nginx_log
+
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
 cat /proc/sys/vm/max_map_count
 sysctl -w vm.max_map_count=262144
