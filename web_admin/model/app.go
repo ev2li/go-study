@@ -48,7 +48,7 @@ func GetIPInfoByName(appName string)(iplist []string, err error){
 		return
 	}
 
-	err = Db.Select(&iplist, "select ip from tb_app_ip where app_id = ?", appId[0])
+	err = Db.Select(&iplist, "select ip from tbl_app_ip where app_id = ?", appId[0])
 	if err != nil {
 		logs.Warn("Get all app info failed, err:%v", err)
 		return

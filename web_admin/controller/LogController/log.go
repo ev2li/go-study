@@ -61,6 +61,22 @@ func (p *LogController) LogCreate(){
 		logs.Warn("invalid parameter")
 		return
 	}
+	iplist, err := model.GetIPInfoByName(appName)
+	if err != nil {
+		p.Data["Error"] = fmt.Sprintf("获取项目Ip失败")
+		p.TplName = "app/error.html"
 
+		logs.Warn("invalid parameter")
+		return
+	}
+
+	for _, ip := range iplist {
+		key := fmt.Sprintf("/oldboy/backend/logagent/config/%s", ip)
+		err = model.SetLogConfToEtcd(key, logInfo)
+		if err != nil {
+			logs.Warn("set conf to etcd failed, err:%v", err)
+			continue
+		}
+	}
 	p.Redirect("/log/list", 302)
 }
