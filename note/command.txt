@@ -23,3 +23,7 @@ docker run --name elasticsearch -d -e ES_JAVA_OPTS="-Xms512m -Xmx512m" -e "disco
 
 replace github.com/coreos/bbolt => go.etcd.io/bbolt v1.3.5
 go mod tidy
+
+etcdctl --prefix --keys-only=true get /
+etcdctl --endpoints="https://10.39.47.35:2379"  --prefix --keys-only=true get /registry
+etcdctl --endpoints="https://10.39.47.35:2379" --prefix --keys-only=false get /registry/pods/monitoring/node-exporter-bkdwx
