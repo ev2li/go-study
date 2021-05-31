@@ -27,3 +27,7 @@ go mod tidy
 etcdctl --prefix --keys-only=true get /
 etcdctl --endpoints="https://10.39.47.35:2379"  --prefix --keys-only=true get /registry
 etcdctl --endpoints="https://10.39.47.35:2379" --prefix --keys-only=false get /registry/pods/monitoring/node-exporter-bkdwx
+http://thesecretlivesofdata.com/raft/
+distributed consensus 分布式一致性
+candidate 候选者
+election 选举
