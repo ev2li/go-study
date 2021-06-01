@@ -10,6 +10,7 @@ type MyInterface interface {
 	HelloWorld(string, *string) error
 }
 
+//RegisterService
 //调用方法时，需要传参，参数应该是实现了HelloWorld方法对象
 func RegisterService(i MyInterface) {
 	err := rpc.RegisterName("hello", i)
