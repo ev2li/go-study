@@ -7,14 +7,14 @@ import (
 	"google.golang.org/grpc"
 	"net"
 )
-//定义类
+// Children 定义类
 type Children struct {
 
 }
 
-//按接口去绑定类方法
-func (this *Children) SayHello(ctx context.Context, teacher *pb.Teacher)(*pb.Teacher, error) {
-	teacher.Name += "zhangsan is sleep!"
+//SayHello 按接口去绑定类方法
+func (child *Children) SayHello(ctx context.Context, teacher *pb.Teacher)(*pb.Teacher, error) {
+	teacher.Name += " is sleep!"
 	return teacher, nil
 }
 
