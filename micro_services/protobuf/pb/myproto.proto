@@ -2,7 +2,7 @@
 syntax = "proto3";
 //指定所在包名
 package pb;
-
+option go_package="./;pb";
 //定义枚举类型
 enum Week {
     Monday = 0; //枚举值必须从0开始
@@ -28,4 +28,7 @@ message People {
     int32 weight = 1;
 }
 
-
+//添加rpc服务
+service bj38 {
+    rpc Say(People) returns (Student);
+}

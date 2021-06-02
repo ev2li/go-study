@@ -31,3 +31,13 @@ http://thesecretlivesofdata.com/raft/
 distributed consensus 分布式一致性
 candidate 候选者
 election 选举
+
+git fetch --all
+git reset --hard origin/master
+git pull //可以省略
+
+protoc --go_out=plugins=grpc:./ *proto
+protoc --go_out=./ *.proto
+
+github.com/grpc-ecosystem/grpc-gateway v1.12.2
+replace google.golang.org/grpc => google.golang.org/grpc v1.27.0
