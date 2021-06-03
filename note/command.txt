@@ -42,3 +42,25 @@ protoc --go_out=./ *.proto
 github.com/grpc-ecosystem/grpc-gateway v1.12.2
 replace google.golang.org/grpc => google.golang.org/grpc v1.27.0
 http://www.topgoer.com
+
+consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=n1 -bind=10.240.202.226 -ui -rejoin -config-dir=/etc/consul.d/ -client 0.0.0.0
+consul member
+consul info: 查看当前consul的IP信息
+consul leave: 优雅的关闭consul
+curl -s 127.0.0.1:8500/v1/catalog/service/bj38
+路径:/etc/consul.d/
+{
+    "service":{
+        "name" : "bj38",
+        "tags" : ["itcast", "itheima"],
+        "port" : 9000,
+        "address" : "10.240.202.226",
+        "check": {
+            "id" : "api",
+            "name" : "HTTP API on port 9000",
+            "http" : "http://localhost:9000",
+            "interval" : "10s",
+            "timeout" : "1s"
+        }
+    }
+}
