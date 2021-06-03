@@ -64,3 +64,5 @@ curl -s 127.0.0.1:8500/v1/catalog/service/bj38
         }
     }
 }
+
+wget -q  https://raw.githubusercontent.com/micro/micro/master/scripts/install.sh -O - | /bin/bash
